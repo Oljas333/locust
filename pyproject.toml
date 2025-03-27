@@ -1,0 +1,35 @@
+[tool.poetry]
+name = "dms-locust"
+version = "0.1.0"
+description = "A locust test for DMS"
+authors = ["Nurbakyt Madibek <n.madibek@mycar.digital>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+locust = "^2.31.5"
+pandas = "^2.2.2"
+openpyxl = "^3.1.5"
+
+[tool.poetry.group.dev.dependencies]
+black = "^24.8.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.locust]
+locustfile = "locustfile.py"
+autostart = true
+#host = "https://stage-api.mycarpro.net/dms"
+host = 'http://localhost:8000' # Assuming that the DMS is running on localhost
+
+csv = 'dms'
+csv-full-history = true
+html = 'dms_locust_report.html'
+
+loglevel = "INFO"
+
+users = 1 # Total number of users to simulate
+spawn-rate = 1 # 1 user is spawned every second

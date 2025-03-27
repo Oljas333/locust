@@ -1,4 +1,4 @@
-# Locust test for DMS
+
 
 All locust configurations are in `pyproject.toml`.
 
